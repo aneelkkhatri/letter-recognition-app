@@ -17,6 +17,7 @@ export default function LetterRecognitionApp() {
   const [currentLetter, setCurrentLetter] = useState('A');
   const [trainingData, setTrainingData] = useState([]);
   const [message, setMessage] = useState('Draw a letter to recognize or train the model');
+  const lastPoint = useRef(null);
 
   // Initialize canvas and context
   useEffect(() => {
@@ -83,14 +84,27 @@ export default function LetterRecognitionApp() {
     ctx.beginPath();
     ctx.moveTo(offsetX, offsetY);
     setIsDrawing(true);
+    lastPoint.current = { x: offsetX, y: offsetY };
+    ctx.lineTo(offsetX, offsetY + 1); // Draw a small line to start
+    ctx.stroke();
   };
 
   const draw = (e) => {
     e.preventDefault(); // Prevent default behavior like scrolling
     if (!isDrawing) return;
     const { offsetX, offsetY } = getCoordinates(e);
-    ctx.lineTo(offsetX, offsetY);
-    ctx.stroke();
+    const prev = lastPoint.current;
+    if (prev) {
+      // Calculate midpoint
+      const midX = (prev.x + offsetX) / 2;
+      const midY = (prev.y + offsetY) / 2;
+      ctx.beginPath();
+      ctx.moveTo(prev.x, prev.y);
+      ctx.quadraticCurveTo(prev.x, prev.y, midX, midY);
+      ctx.stroke();
+      // Update lastPoint to the midpoint for smooth connection
+      lastPoint.current = { x: midX, y: midY };
+    }
   };
 
   const stopDrawing = (e) => {
@@ -98,6 +112,7 @@ export default function LetterRecognitionApp() {
     if (isDrawing) {
       ctx.closePath();
       setIsDrawing(false);
+      lastPoint.current = null;
     }
   };
 
