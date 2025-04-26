@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/letter-recognition-app/static/css/main.1022c68e.css",
-    "main.js": "/letter-recognition-app/static/js/main.180bcd92.js",
+    "main.js": "/letter-recognition-app/static/js/main.156d4449.js",
     "static/js/453.6969c78f.chunk.js": "/letter-recognition-app/static/js/453.6969c78f.chunk.js",
     "index.html": "/letter-recognition-app/index.html",
     "main.1022c68e.css.map": "/letter-recognition-app/static/css/main.1022c68e.css.map",
-    "main.180bcd92.js.map": "/letter-recognition-app/static/js/main.180bcd92.js.map",
+    "main.156d4449.js.map": "/letter-recognition-app/static/js/main.156d4449.js.map",
     "453.6969c78f.chunk.js.map": "/letter-recognition-app/static/js/453.6969c78f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1022c68e.css",
-    "static/js/main.180bcd92.js"
+    "static/js/main.156d4449.js"
   ]
 }
