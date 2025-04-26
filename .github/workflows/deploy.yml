@@ -28,6 +28,7 @@ jobs:
         run: npm run build
         env:
           CI: false  # This prevents treating warnings as errors
+          PUBLIC_URL: /letter-recognition-app  # Adjust this if your app is not at the root of the domain
           
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
