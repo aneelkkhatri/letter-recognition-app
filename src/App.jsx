@@ -3,7 +3,10 @@ import * as tf from '@tensorflow/tfjs';
 import './LetterRecognition.css';
 
 // Define your custom letters array 
-const CUSTOM_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']; 
+const CUSTOM_LETTERS = [
+  "A","B","C","D","E","F","G","H","I","J","K","L","M",
+  "N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
+];
 // You can use any set of characters: Cyrillic, Arabic, Japanese, etc.
 
 // Main component for the letter recognition app
